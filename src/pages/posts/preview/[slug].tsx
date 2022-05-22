@@ -39,7 +39,7 @@ export default function PostPreview({ post }: PostPreviewProps) {
         <article className={styles.post}>
           <h1>{post.title}</h1>
           <time>{post.updatedAt}</time>
-          <div 
+          <div
             className={`${styles.postContent} ${styles.previewContent}`}
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
@@ -68,7 +68,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const prismic = getPrismicClient()
 
-  const response = await prismic.getByUID('publication', String(slug), {})
+  const response = await prismic.getByUID('post', String(slug), {})
 
   const post = {
     slug,
